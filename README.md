@@ -1,14 +1,12 @@
 # react native Projesi
 ## 149.React.Bootcamp Projesi
 ## Commit Atarken Dikkat Edilmesi Gerekenler:
-1. Insert: ekleyeceğin paketin ismi ayarlama yaptıysan config kelimesi paket isimleri arasında "-" işareti kullanılmalıdır. 
-2. Fixed: Sayfada düzenleme yaptığın sayfa adı ve yapılan işlem örneğin: Fixed : Main ios style add
+1. Ins: ekleyeceğin paketin ismi ayarlama yaptıysan config kelimesi paket isimleri arasında "-" işareti kullanılmalıdır. 
+2. Fix:a bug fix has occurred- Sayfada düzenleme yaptığın sayfa adı ve yapılan işlem örneğin: Fixed : Main ios style add
 
 The commit type can include the following:
 
 feat – a new feature is introduced with the changes
-
-fix – a bug fix has occurred
 
 chore – changes that do not relate to a fix or feature and don't modify src or test files (for example updating dependencies)
 
