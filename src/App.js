@@ -11,7 +11,7 @@ const App = props => {
   return (
     <View style={{ flex: 1 }}>
       <Provider store={store}>
-      <Text>Ana sayfa</Text>
+      <Text>Ana sayfa 1</Text>
         {/* <Navigation /> */}
       </Provider>
     </View>
