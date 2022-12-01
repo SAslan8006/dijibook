@@ -1,15 +1,17 @@
 import React from 'react';
-import { View,Text } from 'react-native';
+import { View } from 'react-native';
 
 import { Provider } from 'react-redux';
-import FlashMessage from "react-native-flash-message";
+import FlashMessage from 'react-native-flash-message';
 import { Navigation } from '~/navigation';
 
 import store from '~/redux';
 
+import { colors } from './themes';
+
 const App = props => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: colors.white }}>
       <Provider store={store}>
         <Navigation />
         <FlashMessage position="top" />

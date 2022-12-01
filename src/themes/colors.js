@@ -1,6 +1,6 @@
 export default {
-  orange: '#FFA45B',
-  yellow: '#FFDA77',
-  white: '#FBF6F0',
-  aqua: '#AEE6E6',
+  orange: '#F6502E',
+  white: '#FBF5F4',
+  gray: '#707070',
+  black: '#18191F',
 };
