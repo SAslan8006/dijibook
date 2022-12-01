@@ -1,4 +1,4 @@
 import spacing from '~/configs/spacing.json';
 import text from '~/configs/text.json';
-
-export { spacing, text };
+import color from '~/configs/color.json'
+export { spacing, text,color };
