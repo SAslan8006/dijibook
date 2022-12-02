@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { connect } from 'react-redux';
 import { logoutUserWithFB } from '~/redux/actions/app';
 
-import Messages from '~/screens/Messages';
+import Deneme from '~/screens/Deneme';
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
@@ -20,7 +20,7 @@ const MainStack = connect(mapDispatchToProps)(props => {
       <Stack.Screen name="chat" options={{
         headerShown: true, title: 'Chat',
         headerTitleAlign: 'center', headerRight: () => <Icon name="logout" size={28} onPress={() => dispatch(logoutUserWithFB())} />,
-        }} component={Messages} />
+      }} component={Deneme} />
     </Stack.Navigator>
   );
 });

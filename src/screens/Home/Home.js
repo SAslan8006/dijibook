@@ -1,5 +1,6 @@
 import { FlatList, View } from 'react-native';
 import BookCard from '~/components/Card/BookCard';
+import styles from './Home.style';
 
 const Home = () => {
   const handleOnPress = () => { null };

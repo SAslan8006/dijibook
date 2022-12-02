@@ -6,8 +6,8 @@ import authErrorMessageParse from '~/utils/authErrorMessageParser';
 
 
 export const createUserWithFB = async (email, password) => {
-  if (password == "" || email=="" ) {
-    showMessage({ message: "Alanları doğru şekilde giriniz", type: 'danger' });
+  if (!email || !password) {
+    showMessage({ message: "Email and password required *", type: 'danger' });
     return;
   }
   try {
@@ -23,17 +23,17 @@ export const createUserWithFB = async (email, password) => {
 };
 
 export const loginUserWithFB = async (email, password) => {
-  if (password == "" || email == "") {
-    showMessage({ message: "Alanları doğru şekilde giriniz", type: 'danger' });
+  if (!email || !password) {
+    showMessage({ message: "Email and password required *", type: 'danger' });
     return;
   }
   try {
     const response = await auth().signInWithEmailAndPassword(email, password);
-
     return { data: null, status: 200, success: true };
   } catch (error) {
     console.error(error);
     showMessage({ message: authErrorMessageParse(error.code), type: 'danger' });
+    return;
   }
 
   return { data: null, status: 500, success: false };
