@@ -1,5 +1,10 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
 
-const styles = StyleSheet.create({});
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
-export default styles;
+export default StyleSheet.create({
+    container: {
+        marginHorizontal: width * 0.05,
+    },
+});
