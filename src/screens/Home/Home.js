@@ -1,18 +1,32 @@
-import { FlatList, View } from 'react-native';
+import React from 'react';
+import { FlatList, View, Text } from 'react-native';
 import BookCard from '~/components/Card/BookCard';
 import styles from './Home.style';
+import database from '@react-native-firebase/database';
 
 const Home = () => {
+  const [contentList, setContentList] = React.useState([]);
   const handleOnPress = () => { null };
-  const renderBooks = ({ item }) => <BookCard book={item} onPress={() => handleOnPress()} />;
+  const renderBooks = ({ item }) => <Text>{item} </Text>;
+  React.useEffect(() => {
+    database()
+      .ref('/Data')
+      .once('value')
+      .then(snapshot => {
+        const contentData = snapshot.val();
+        console.log(contentData);
+        setContentList(contentData);
+      });
+  }, []);
+
+  const renderContent = ({ item }) => (
+    <BookCard book={item} onPress={() => handleOnPress()} />
+  );
+  console.log(contentList[0]);
 
   return (
     <View style={styles.container}>
-      <FlatList
-        data={null}
-        renderItem={renderBooks}
-        numColumns={3}
-      />
+      <FlatList data={contentList} renderItem={renderContent} numColumns={3} />
     </View>
   );
 };

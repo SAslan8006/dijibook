@@ -6,7 +6,7 @@ import database from '@react-native-firebase/database';
 
 const Deneme = () => {
   const [contentList, setContentList] = React.useState([]);
-  // const handleOnPress = () => { null };
+  const handleOnPress = () => { null };
   const renderBooks = ({ item }) => <Text>{item} </Text> ;
   React.useEffect(() => {
     database()
@@ -14,6 +14,7 @@ const Deneme = () => {
       .once('value')
       .then(snapshot => {
         const contentData = snapshot.val();
+        console.log(contentData);
         setContentList(contentData);
       });
   }, []);
@@ -21,6 +22,7 @@ const Deneme = () => {
   const renderContent = ({ item }) => (
     <BookCard book={item} onPress={() => handleOnPress()} />
   );
+  console.log(contentList[0]);
 
   return (
     <View style={styles.container}>
