@@ -4,7 +4,7 @@ import com.android.build.OutputFile
 import org.apache.tools.ant.taskdefs.condition.Os
 
 project.ext.vectoricons = [ //Vector İcons
-    iconFontNames: [ 'MaterialCommunityIcons.ttf' ] // Name of the font files you want to copy
+    iconFontNames: [  'FontAwesome5.ttf','MaterialCommunityIcons.ttf' ] // Name of the font files you want to copy
 ]
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle" //Vector İcons
 /**
