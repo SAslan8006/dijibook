@@ -9,7 +9,7 @@ import parseContentData from '~/utils/contentData';
 const Home = () => {
   const [contentList, setContentList] = React.useState([]);
   const handleOnPress = () => { null };
-  const renderBooks = ({ item }) => <Text>{item} </Text>;
+  
   React.useEffect(() => {
     database()
       .ref('/Data')
