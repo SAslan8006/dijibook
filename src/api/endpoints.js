@@ -1,6 +1,6 @@
-export const baseurl = 'https://dummyjson.com';
+export const baseurl = 'https://dijibook-31b27-default-rtdb.firebaseio.com/';
 
 export default {
   login: '/auth/login',
-  products: '/products?limit=100',
+  products: '/Data',
 };

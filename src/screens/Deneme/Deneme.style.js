@@ -1,10 +1,26 @@
-import { Dimensions, StyleSheet } from 'react-native';
-
-const width = Dimensions.get("window").width;
-const height = Dimensions.get("window").height;
+import { Dimensions, StyleSheet } from "react-native";
+import { colors } from "~/themes";
 
 export default StyleSheet.create({
     container: {
-        marginHorizontal: width * 0.05,
+        flex: 1,
+        backgroundColor: colors.orange,
     },
-});
+    logo: {
+        width: Dimensions.get("window").width * 0.9,
+        height: Dimensions.get("window").height / 3,
+        resizeMode: "contain",
+        alignSelf: "center",
+        tintColor: "white"
+
+    },
+    logo_container: {
+        flex: 1,
+        justifyContent: "center",
+
+    },
+    body_container: {
+        flex: 1,
+
+    },
+})

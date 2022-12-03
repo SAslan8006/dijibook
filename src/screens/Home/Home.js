@@ -44,7 +44,6 @@ const Home = () => {
   const renderContent = ({ item }) => (
     <BookCard book={item} onPress={() => handleOnPress()} />
   );
-  console.log(contentList[0]);
 
   return (
     <View style={styles.container}>

@@ -4,7 +4,7 @@ const initialState = {
   defaultParameter: false,
   username: '',
   password: '',
-
+  products: [],
   userInfo: {},
 
   loginStatus: false,
@@ -25,7 +25,7 @@ const app = (state = initialState, actionObj) => {
     case constants.REQUEST_LOGOUT_USER_WITH_FB: {
       return { ...state, password: undefined, userInfo: null, loginStatus: false };
     }
-    case constants.REQUEST_GET_ALL_PRODUCTS: {
+    case constants.REQUEST_GET_ALL_PRODUCTS_WITH_FB: {
       return { ...state, products: actionObj.payload.products };
     }
     default:
