@@ -7,7 +7,8 @@ import { connect } from 'react-redux';
 import { logoutUserWithFB } from '~/redux/actions/app';
 
 import Home from '~/screens/Home';
-import Deneme from '~/screens/Deneme';
+import Deneme from '~/screens/AddBook';
+import Redux from '~/screens/Redux';
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 
@@ -21,7 +22,7 @@ const MainStack = connect(mapDispatchToProps)(props => {
       <Stack.Screen name="chat" options={{
         headerShown: true, title: 'Deneme',
         headerTitleAlign: 'center', headerRight: () => <Icon name="logout" size={28} onPress={() => dispatch(logoutUserWithFB())} />,
-      }} component={Home} />
+      }} component={Deneme} />
     </Stack.Navigator>
   );
 });
