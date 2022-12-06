@@ -9,7 +9,7 @@ import { connect } from 'react-redux';
 import { requestAllProducts } from '~/redux/actions/app';
 
 
-const mapStateToProps = states => ({ app: states.app.product});
+const mapStateToProps = states => ({ app: states.app});
 const mapDispatchToProps = dispatch => ({ dispatch });
 
 const Redux = connect(

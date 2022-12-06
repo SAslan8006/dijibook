@@ -43,7 +43,6 @@ const AddBook = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-
       <Formik initialValues={initialFormValues} onSubmit={handleFormSubmit} validationSchema={SignupSchema} >
         {({ values, handleChange, handleSubmit,errors }) => (<>
           <ScrollView>
