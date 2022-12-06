@@ -11,7 +11,6 @@ import Home from '~/screens/Home';
 import Deneme from '~/screens/AddBook';
 import Redux from '~/screens/Redux';
 import BarkodRead from '~/screens/BarkodRead';
-import BCamera from '~/components/Camera/BCamera';
 
 (async () => {
   try {
