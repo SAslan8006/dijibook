@@ -12,6 +12,7 @@ import Deneme from '~/screens/AddBook';
 import Redux from '~/screens/Redux';
 import BarkodRead from '~/screens/BarkodRead';
 import BCamera from '~/components/Camera/BCamera';
+import TabNavigation from '~/screens/TabNavigation';
 
 (async () => {
   try {
@@ -31,9 +32,9 @@ const MainStack = connect(mapDispatchToProps)(props => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="chat" options={{
-        headerShown: true, title: 'Deneme',
+        headerShown: false, title: 'Deneme',
         headerTitleAlign: 'center', headerRight: () => <Icon name="logout" size={28} onPress={() => dispatch(logoutUserWithFB())} />,
-      }} component={Home} />
+      }} component={TabNavigation} />
     </Stack.Navigator>
   );
 });
