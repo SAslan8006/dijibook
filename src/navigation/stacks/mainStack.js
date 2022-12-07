@@ -33,7 +33,7 @@ const MainStack = connect(mapDispatchToProps)(props => {
       <Stack.Screen name="chat" options={{
         headerShown: true, title: 'Deneme',
         headerTitleAlign: 'center', headerRight: () => <Icon name="logout" size={28} onPress={() => dispatch(logoutUserWithFB())} />,
-      }} component={BarkodRead} />
+      }} component={Home} />
     </Stack.Navigator>
   );
 });

@@ -11,9 +11,9 @@ const Button = ({ text, onPress, loading, icon, theme = 'primary' }) => {
         <ActivityIndicator color="white" />
       ) : (
        // <View style={styles[theme].button_container}>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row-reverse'}}>
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
-            <Icon name={icon} color="white" size={16} />
+            <Icon name={icon} color="white" size={30} />
           </View>
           <View style={{alignItems: 'center', justifyContent: 'center'}}>
             <Text style={styles[theme].title}>{text}</Text>

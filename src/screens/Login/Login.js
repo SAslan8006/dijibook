@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
 
 import { connect } from 'react-redux';
 
@@ -20,22 +20,25 @@ const Login = connect(
   return (
     <View style={styles.container}>
       <View style={styles.body_container}>
-        <Image source={require('~/assets/logo.png')} style={styles.logo} />
+        <Image source={require('~/assets/dijibook-logo-white.png')} style={styles.logo} />
+        <Text style={styles.title}>Welcome</Text>
+        <Text style={styles.subtitle}> Sign in to continue</Text>
+        
         <Input
-          placeholder="Enter e-mail..."
+          placeholder="E-mail adress..."
           keyboardType="email-address"
           value={app.username}
           onChangeText={d => dispatch(setApp('username', d))}
         />
         <Input
-          placeholder="Enter password..."
+          placeholder="Password..."
           isSecure
           value={app.password}
           onChangeText={d => dispatch(setApp('password', d))}
         />
+      <Button icon="chevron-right" text="Sign in" onPress={() => dispatch(loginUserWithFB())} />
+      <Button icon="chevron-right" text="Register" onPress={() => dispatch(createUserWithFB())} />
       </View>
-      <Button icon="login" text="Login" onPress={() => dispatch(loginUserWithFB())} />
-      <Button icon="account-plus-outline" text="Sign Up" onPress={() => dispatch(createUserWithFB())} />
 
       {/* Loaading logo if user wait due to internet connection issue */}
       {app.loginLoading}
