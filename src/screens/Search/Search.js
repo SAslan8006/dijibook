@@ -1,21 +1,26 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, ScrollView, TouchableWithoutFeedback, Text } from 'react-native';
 import BookCard from '~/components/Card/BookCard';
 import SearchBar from '~/components/SearchBar';
+import styles from './Search.style';
 
-const Search = () => { // navigation alacak. 
-    const [list, setList] = useState(""); // useState içerisine firebase'den books gelecek.
-    const handleOnPress = () => { null };
-    // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
-    /* const handleOnPress = (book) => {
+const Search = () => {
+  // navigation alacak.
+  const [list, setList] = useState(''); // useState içerisine firebase'den books gelecek.
+  const handleOnPress = () => {
+    null;
+  };
+  // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
+  /* const handleOnPress = (book) => {
         navigation.navigate("Details", book);
     } */
-    const renderBooks = ({ item }) => <BookCard book={item} onPress={() => handleOnPress()} /> // handleOnPress item prop'unu alacak.
-    const handleSearh = () => {
-        null
-    }
-    // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
-    /* const handleSearch = text => {
+  const renderBooks = ({ item }) => <BookCard book={item} onPress={() => handleOnPress()} />; // handleOnPress item prop'unu alacak.
+  const handleSearh = () => {
+    null;
+  };
+  // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
+  /* const handleSearch = text => {
         const filteredBook = books.filter(book => {
             const searchedText = text.toLowerCase();
             const currentBookName = book.bookName.toLowerCase();
@@ -23,26 +28,26 @@ const Search = () => { // navigation alacak.
         });
         setList(filteredBook);
     }; */
-    const handleSelectedAll = () => {
-        null;
-    };
-    const handleSelectedRoman = () => {
-        null;
-    };
-    const handleSelectedSiir = () => {
-        null;
-    };
-    const handleSelectedDeneme = () => {
-        null;
-    };
-    const handleSelectedBiyografi = () => {
-        null;
-    };
-    const handleSelectedEdebiyatInceleme = () => {
-        null;
-    };
-    // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
-    /* const handleSelectedAll = (category) => {
+  const handleSelectedAll = () => {
+    null;
+  };
+  const handleSelectedRoman = () => {
+    null;
+  };
+  const handleSelectedSiir = () => {
+    null;
+  };
+  const handleSelectedDeneme = () => {
+    null;
+  };
+  const handleSelectedBiyografi = () => {
+    null;
+  };
+  const handleSelectedEdebiyatInceleme = () => {
+    null;
+  };
+  // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
+  /* const handleSelectedAll = (category) => {
         const filtered = books;
         setList(filtered);
         console.log(filtered.length);
@@ -73,40 +78,38 @@ const Search = () => { // navigation alacak.
         console.log(filtered.length);
     };   */
 
-    return (
-        <View>
-            <SearchBar onSearch={handleSearh} />
-            <View style={styles.category}>
-                <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-                    <TouchableWithoutFeedback onPress={handleSelectedAll}>
-                        <Text style={styles.allBooks} >Tümü</Text>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={handleSelectedRoman}>
-                        <Text style={styles.roman}>Roman</Text>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={handleSelectedSiir}>
-                        <Text style={styles.siir}>Siir</Text>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={handleSelectedDeneme}>
-                        <Text style={styles.deneme}>Deneme</Text>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={handleSelectedBiyografi}>
-                        <Text style={styles.biyografi}>Biyografi</Text>
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={handleSelectedEdebiyatInceleme}>
-                        <Text style={styles.edebiyatInceleme}>Edebiyat Inceleme</Text>
-                    </TouchableWithoutFeedback>
-                </ScrollView>
-            </View>
-            <View style={styles.container}>
-                <FlatList
-                    data={list}
-                    renderItem={renderBooks}
-                    numColumns={3}
-                />
-            </View>
-        </View>
-    );
+  return (
+    <View>
+      <View style={null}>
+        <SearchBar onSearch={handleSearh} />
+      </View>
+      <View style={styles.category}>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          <TouchableWithoutFeedback onPress={handleSelectedAll}>
+            <Text style={styles.categoryItem}>Tümü</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={handleSelectedRoman}>
+            <Text style={styles.categoryItem}>Roman</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={handleSelectedSiir}>
+            <Text style={styles.categoryItem}>Siir</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={handleSelectedDeneme}>
+            <Text style={styles.categoryItem}>Deneme</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={handleSelectedBiyografi}>
+            <Text style={styles.categoryItem}>Biyografi</Text>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback onPress={handleSelectedEdebiyatInceleme}>
+            <Text style={styles.categoryItem}>Edebiyat Inceleme</Text>
+          </TouchableWithoutFeedback>
+        </ScrollView>
+      </View>
+      <View style={styles.container}>
+        <FlatList data={list} renderItem={renderBooks} numColumns={3} />
+      </View>
+    </View>
+  );
 };
 
 export default Search;
