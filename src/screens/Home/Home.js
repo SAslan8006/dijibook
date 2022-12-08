@@ -12,7 +12,7 @@ const Home = () => {
   
   React.useEffect(() => {
     database()
-      .ref('/Data')
+      .ref('/products')
       .on('value', snapshot => {
         const contentData = snapshot.val();
         const parsedData = parseContentData(contentData || {});

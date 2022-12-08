@@ -20,8 +20,8 @@ const Redux = connect(
     console.log("Dispach:" + app);
 
     useEffect(() => {
-        //dispatch(requestGetAllPRoductsFromFirebase());
-        dispatch(getPRoductFromFirebase());
+        dispatch(requestGetAllPRoductsFromFirebase());
+        //dispatch(getPRoductFromFirebase());
         return () => {
             if (global.firebaseProductsListenerOff) {
                 global.firebaseProductsListenerOff();
