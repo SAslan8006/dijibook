@@ -4,6 +4,8 @@ import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import database from '@react-native-firebase/database';
+import { connect } from 'react-redux';
+import { firebaseProductsListener, requestAddProductToFirebase,  requestGetAllPRoductsFromFirebase, setApp } from '~/redux/actions';
 
 import styles from "./AddBook.style";
 import Button from "~/components/Button";
@@ -33,13 +35,19 @@ const SignupSchema = Yup.object().shape({
   isbn: Yup.string().min(8, 'Too Short!').max(15, 'Too Long!').required('Required'),
   image: Yup.string().url('Invalid Url').required('Required'),
 });
-const AddBook = () => {
 
+const mapStateToProps = states => ({ app: states.app });
+const mapDispatchToProps = dispatch => ({ dispatch });
 
-  async function handleFormSubmit(formValues) {
-    console.log(formValues);
-    database().ref('Data/').push(formValues);
-  }
+const AddBook = connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(props => {
+  const { app, dispatch } = props;
+
+  const handleFormSubmit = formValues => {
+    dispatch(requestAddProductToFirebase(formValues));
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -71,7 +79,7 @@ const AddBook = () => {
 
     </SafeAreaView>
   )
-}
+});
 
 
 export default AddBook;

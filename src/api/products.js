@@ -1,28 +1,9 @@
 import database from '@react-native-firebase/database';
 import parseContentData from '~/utils/contentData';
 
-export const getAllProducts = async uid => { 
-  try {
-    let keys = (await database().ref(`/Data`).once('value')).val();
-    keys = Object.values(keys);
-
-    const products = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      products.push((await getPRoductFromFirebase(keys[i])).data);
-    }
-
-    return { data: products, success: true };
-  } catch (error) {
-    console.error(error);
-  }
-
-  return { data: null, success: false };
-  };
-
 export const addProductToFirebase = async (item, uid) => {
   try {
-    const ref = database().ref('/Data').push();
+    const ref = database().ref('/products').push();
     const key = ref.key;
 
     await ref.set(item);
@@ -38,7 +19,7 @@ export const addProductToFirebase = async (item, uid) => {
 
 export const getPRoductFromFirebase = async key => {
   try {
-    const productsRef = database().ref('/Data');
+    const productsRef = database().ref('/products');
     const item = (await productsRef.child(key).once('value')).val();
     return { data: item, success: true };
   } catch (error) {
@@ -85,4 +66,3 @@ export const firebaseProductsListener = async (uid, callBack) => {
 
   return { data: null, success: false };
 };
-
