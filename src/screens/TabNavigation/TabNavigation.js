@@ -7,8 +7,7 @@ import Search from '../Search';
 import colors from '~/themes/colors';
 import { View, Text } from 'react-native';
 import styles from './TabNavigation.style';
-
-import SearchBar from '~/components/SearchBar';
+import { color } from 'react-native-reanimated';
 
 const Tabs = createBottomTabNavigator();
 
@@ -27,7 +26,12 @@ const TabNavigation = () => {
     );
 
   return (
-    <Tabs.Navigator>
+    <Tabs.Navigator
+      screenOptions={{
+        tabBarLabelStyle: { fontSize: 12, marginBottom: 8, color: colors.orange, fontFamily: 'Montserrat-ExtraBold' },
+        tabBarItemStyle: { alignItems: 'center', backgroundColor: colors.white },
+        tabBarStyle: { backgroundColor: 'red', height: 60 },
+      }}>
       <Tabs.Screen
         name="Home"
         component={Home}

@@ -16,7 +16,7 @@ const Search = () => {
         navigation.navigate("Details", book);
     } */
   const renderBooks = ({ item }) => <BookCard book={item} onPress={() => handleOnPress()} />; // handleOnPress item prop'unu alacak.
-  const handleSearh = () => {
+  const handleSearch = () => {
     null;
   };
   // Firebase'den alınan kitap verisi entegre edildiğinde aşağıdaki kod kullanılabilir.
@@ -81,32 +81,10 @@ const Search = () => {
   return (
     <View>
       <View style={null}>
-        <SearchBar onSearch={handleSearh} />
-      </View>
-      <View style={styles.category}>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          <TouchableWithoutFeedback onPress={handleSelectedAll}>
-            <Text style={styles.categoryItem}>Tümü</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleSelectedRoman}>
-            <Text style={styles.categoryItem}>Roman</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleSelectedSiir}>
-            <Text style={styles.categoryItem}>Siir</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleSelectedDeneme}>
-            <Text style={styles.categoryItem}>Deneme</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleSelectedBiyografi}>
-            <Text style={styles.categoryItem}>Biyografi</Text>
-          </TouchableWithoutFeedback>
-          <TouchableWithoutFeedback onPress={handleSelectedEdebiyatInceleme}>
-            <Text style={styles.categoryItem}>Edebiyat Inceleme</Text>
-          </TouchableWithoutFeedback>
-        </ScrollView>
+        <SearchBar onSearch={handleSearch} />
       </View>
       <View style={styles.container}>
-        <FlatList data={list} renderItem={renderBooks} numColumns={3} />
+        <FlatList data={list} renderItem={renderBooks} numColumns={2} />
       </View>
     </View>
   );
