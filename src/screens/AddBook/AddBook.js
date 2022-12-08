@@ -25,6 +25,7 @@ const initialFormValues = {
   publisher: '',
   text: '',
   title: '',
+  id: isbn,
 };
 
 const SignupSchema = Yup.object().shape({
