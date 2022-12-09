@@ -1,6 +1,8 @@
+import React from 'react';
+
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import React from 'react';
+
 import Favorites from '../Favorites';
 import Home from '../Home';
 import Search from '../Search';
