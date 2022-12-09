@@ -12,14 +12,15 @@ export const createUserWithFB = async (email, password) => {
   }
   try {
     const response = await auth().createUserWithEmailAndPassword(email, password);
+    console.log("auth response: " + response);
 
-    return { data: null, status: 200, success: true };
+    return { data: response, success: true };
   } catch (error) {
     showMessage({ message: authErrorMessageParse(error.code), type: 'danger' });
-    console.error(error);
+    console.error('createUserWithFB: ', error);
   }
 
-  return { data: null, status: 500, success: false };
+  return { data: null, success: false };
 };
 
 export const loginUserWithFB = async (email, password) => {
@@ -29,24 +30,27 @@ export const loginUserWithFB = async (email, password) => {
   }
   try {
     const response = await auth().signInWithEmailAndPassword(email, password);
-    return { data: null, status: 200, success: true };
+    console.log("login:" + response);
+    return { data: response, success: true };
+    
   } catch (error) {
-    console.error(error);
+    console.error('loginUserWithFB: ', error);
     showMessage({ message: authErrorMessageParse(error.code), type: 'danger' });
     return;
   }
 
-  return { data: null, status: 500, success: false };
+  return { data: null, success: false };
 };
+
 export const logout= async () => {
   try {
     const response = await auth().signOut();
 
-    return { data: null, status: 200, success: true };
+    return { data: response, success: true };
   } catch (error) {
     console.error(error);
     showMessage({ message: authErrorMessageParse(error.code), type: 'danger' });
   }
 
-  return { data: null, status: 500, success: false };
+  return { data: null, success: false };
 };

@@ -11,8 +11,8 @@ import Home from '~/screens/Home';
 import Deneme from '~/screens/AddBook';
 import Redux from '~/screens/Redux';
 import BarkodRead from '~/screens/BarkodRead';
-import BCamera from '~/components/Camera/BCamera';
 import TabNavigation from '~/screens/TabNavigation';
+
 
 (async () => {
   try {
@@ -21,6 +21,7 @@ import TabNavigation from '~/screens/TabNavigation';
     console.log(e);
   }
 })();
+
 
 const mapDispatchToProps = dispatch => ({ dispatch });
 

@@ -1,32 +1,13 @@
 import database from '@react-native-firebase/database';
 import parseContentData from '~/utils/contentData';
 
-export const getAllProducts = async uid => { 
-  try {
-    let keys = (await database().ref(`/Data`).once('value')).val();
-    keys = Object.values(keys);
-
-    const products = [];
-
-    for (let i = 0; i < keys.length; i++) {
-      products.push((await getPRoductFromFirebase(keys[i])).data);
-    }
-
-    return { data: products, success: true };
-  } catch (error) {
-    console.error(error);
-  }
-
-  return { data: null, success: false };
-  };
-
 export const addProductToFirebase = async (item, uid) => {
   try {
-    const ref = database().ref('/Data').push();
+    const ref = database().ref('/books').push();
     const key = ref.key;
 
     await ref.set(item);
-    await database().ref(`/user_products/${uid}`).push().set(key);
+    await database().ref(`/user_books/${uid}`).push().set(key);
 
     return { data: {}, success: true };
   } catch (error) {
@@ -38,8 +19,9 @@ export const addProductToFirebase = async (item, uid) => {
 
 export const getPRoductFromFirebase = async key => {
   try {
-    const productsRef = database().ref('/Data');
+    const productsRef = database().ref('/books');
     const item = (await productsRef.child(key).once('value')).val();
+
     return { data: item, success: true };
   } catch (error) {
     console.error(error);
@@ -50,7 +32,7 @@ export const getPRoductFromFirebase = async key => {
 
 export const getAllPRoductsFromFirebase = async uid => {
   try {
-    let keys = (await database().ref(`/user_products/${uid}`).once('value')).val();
+    let keys = (await database().ref(`/user_books/${uid}`).once('value')).val();
     keys = Object.values(keys);
 
     const products = [];
@@ -73,7 +55,7 @@ export const firebaseProductsListener = async (uid, callBack) => {
   }
 
   try {
-    const ref = database().ref(`/user_products/${uid}`);
+    const ref = database().ref(`/user_books/${uid}`);
     ref.on('value', d => callBack(d.val()));
 
     global.firebaseProductsListenerOff = ref.off;
@@ -85,4 +67,3 @@ export const firebaseProductsListener = async (uid, callBack) => {
 
   return { data: null, success: false };
 };
-

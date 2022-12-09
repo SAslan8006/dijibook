@@ -15,7 +15,7 @@ export const loginUserWithFB = payload => async (dispatch, getState) => {
 
   dispatch({ type: constants.SET_APP, key: 'loginLoading', value: true });
 
-  const { data, status, success } = await auth.loginUserWithFB(username, password);
+  const { data, success } = await auth.loginUserWithFB(username, password);
 
   dispatch({ type: constants.SET_APP, key: 'loginLoading', value: false });
 
@@ -24,18 +24,18 @@ export const loginUserWithFB = payload => async (dispatch, getState) => {
       type: constants.REQUEST_LOGIN_USER_WITH_FB,
       payload: { userInfo: data },      
     });
+    console.log("action: "+userInfo)
     showMessage({ message: "Başarılı bir şekilde giriş yapılmıştır", type: 'success' });
   } else {
   }
 };
 
 export const createUserWithFB = payload => async (dispatch, getState) => {
-  //async işlemlerin yapılacağı yer
   const { username, password } = getState().app;
 
   dispatch({ type: constants.SET_APP, key: 'loginLoading', value: true });
 
-  const { data, status, success } = await auth.createUserWithFB(username, password);
+  const { data, success } = await auth.createUserWithFB(username, password);
 
   dispatch({ type: constants.SET_APP, key: 'loginLoading', value: false });
 
@@ -45,7 +45,7 @@ export const createUserWithFB = payload => async (dispatch, getState) => {
       payload: { userInfo: data },
     });
     showMessage({ message: "Başarılı bir şekilde kullanıcı oluşturulmuştur", type: 'success' });
-
+    console.log("action userinfo: " + userInfo);
   } else {
   }
 };
@@ -70,8 +70,9 @@ export const logoutUserWithFB = payload => async (dispatch, getState) => {
 };
 
 export const requestAllProducts = payload => async (dispatch, getState) => {
-  const { data, success } = await products.getAllProducts(userInfo.user.uid);
-
+  const { userInfo } = getState().app;
+  const { data, success } = await products.getPRoductFromFirebase(userInfo.user.uid);
+  console.log("action:" + JSON.stringfy(data) );
   if (success) {
     dispatch({
       type: constants.REQUEST_GET_ALL_PRODUCTS_WITH_FB,
