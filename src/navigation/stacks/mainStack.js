@@ -35,7 +35,7 @@ const MainStack = connect(mapDispatchToProps)(props => {
       <Stack.Screen name="chat" options={{
         headerShown: false, title: 'Deneme',
         headerTitleAlign: 'center', headerRight: () => <Icon name="logout" size={28} onPress={() => dispatch(logoutUserWithFB())} />,
-      }} component={Redux} />
+      }} component={TabNavigation} />
     </Stack.Navigator>
   );
 });
