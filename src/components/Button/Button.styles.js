@@ -1,32 +1,25 @@
 import { StyleSheet } from 'react-native';
-import { color } from 'react-native-reanimated';
 import { spacing } from '~/configs';
 import colors from '~/themes/colors';
+import { text } from '~/configs';
 
 //base stylemiz
 const base_style = StyleSheet.create({
   container: {
-    padding: 8,
-    margin: spacing.s / 2,
-    borderRadius: 5,
-    alignItems: 'center',
-    width: '25%',
-    paddingVertical: spacing.s,
-    borderTopLeftRadius: spacing.s,
-    borderTopRightRadius: spacing.s,
-    borderBottomLeftRadius: spacing.s,
-    borderBottomRightRadius: spacing.s,
+    padding: 10,
+    margin: spacing.s / .7,
+    borderRadius: 10,
     justifyContent: 'center',
     backgroundColor: 'white',
+    alignItems: 'center',
   },
   button_container: {
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   title: {
-    fontWeight: 'bold',
-    fontSize: 17,
+    fontFamily: 'Montserrat-ExtraBold',
+    fontSize: text.H3,
     marginLeft: 5,
     color: 'white',
   },

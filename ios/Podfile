@@ -3,7 +3,11 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 platform :ios, '12.4'
 install! 'cocoapods', :deterministic_uuids => false
-
+pod 'Firebase', :modular_headers => true #Firebase-Requirements
+pod 'GoogleUtilities', :modular_headers => true #Firebase-Requirements
+pod 'FirebaseCore', :modular_headers => true #Firebase-Requirements
+pod 'dynamsoft-capture-vision-react-native ', :path => "../node_modules/dynamsoft-capture-vision-react-native"
+pod 'vision-camera-dynamsoft-barcode-reader', :path => "../node_modules/vision-camera-dynamsoft-barcode-reader"
 target 'dijibook' do
   config = use_native_modules!
 
