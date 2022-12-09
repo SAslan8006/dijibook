@@ -16,8 +16,8 @@ const Redux = connect(
     mapStateToProps,
     mapDispatchToProps,
 )(props => {
-    const { dispatch, app } = props;
-    console.log("Dispach:" + app);
+    const { dispatch, app } = props;     
+    
 
     useEffect(() => {
         dispatch(requestGetAllPRoductsFromFirebase());
@@ -31,8 +31,7 @@ const Redux = connect(
 
     const renderContent = ({ item }) => (
         <BookCard book={item} onPress={() => handleOnPress()} />
-    );
-    console.log("item:" + app);
+    );   
 
 
     return (

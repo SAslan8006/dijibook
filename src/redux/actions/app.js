@@ -72,7 +72,7 @@ export const logoutUserWithFB = payload => async (dispatch, getState) => {
 export const requestAllProducts = payload => async (dispatch, getState) => {
   const { userInfo } = getState().app;
   const { data, success } = await products.getPRoductFromFirebase(userInfo.user.uid);
-  console.log("action:"+data);
+  console.log("action:" + JSON.stringfy(data) );
   if (success) {
     dispatch({
       type: constants.REQUEST_GET_ALL_PRODUCTS_WITH_FB,

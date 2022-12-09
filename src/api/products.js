@@ -21,6 +21,7 @@ export const getPRoductFromFirebase = async key => {
   try {
     const productsRef = database().ref('/books');
     const item = (await productsRef.child(key).once('value')).val();
+
     return { data: item, success: true };
   } catch (error) {
     console.error(error);
