@@ -1,4 +1,4 @@
-# react native Projesi
+# React Native Projesi
 ## 149.React.Bootcamp Projesidir
 Takım olarak geliştirilen projenin geliştirim yeri linktedir. 
 
