@@ -1,13 +1,10 @@
-# React Native Projesi
-## 149.React.Bootcamp Projesidir
-Takım olarak geliştirilen projenin geliştirim yeri linktedir. 
-
-https://github.com/semih-turan/dijibook
-
 ![kodluyoruz_yatay_slogan-600x600](https://user-images.githubusercontent.com/99039655/201606078-4baf1921-825a-4b9e-af8a-875b09b0b47a.png)
 
 <h1 align="center"> 👋 Kodluyoruz Bootcamp Final Project</h1>
 
+Takım olarak geliştirilen projenin geliştirim yeri linktedir. 
+
+https://github.com/semih-turan/dijibook
 
 ## How to Use
 `git clone https://github.com/semih-turan/dijibook.git`
